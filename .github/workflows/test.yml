@@ -1,0 +1,26 @@
+name: Test Project
+# on:
+#   push:
+#     branches:
+#       - 'releases/**'
+#     paths:
+#       - '**.js'
+on: push
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+        # Uses with if you want to change or custom, but this workflow is already attached to the repository
+        # with:
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install Dependencies
+        # run: npm install
+        run: npm ci
+      - name: Run Tests
+        run: npm test
