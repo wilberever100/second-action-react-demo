@@ -26,7 +26,7 @@ jobs:
         run: npm test
   deploy:
     #You can define if should depend on the previous job: [test, start, ...]
-    needs: test
+    needs: tests
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
