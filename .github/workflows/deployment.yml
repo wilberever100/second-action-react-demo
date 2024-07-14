@@ -5,7 +5,7 @@ name: Test Project
 #       - 'releases/**'
 #     paths:
 #       - '**.js'
-on: push
+on: [push, workflow_dispatch]
 
 jobs:
   tests:
@@ -25,6 +25,8 @@ jobs:
       - name: Run Tests
         run: npm test
   deploy:
+    #You can define if should depend on the previous job: [test, start, ...]
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
