@@ -1,0 +1,39 @@
+name: GTP Basic Workflow
+on: pull_request
+
+jobs:
+  set_environment_variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Install with Poetry
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry install
+
+
+# CONN_LIB_SNOWFLAKE_USER
+# CONN_LIB_SNOWFLAKE_CLIENT_ID
+# CONN_LIB_SNOWFLAKE_SCHEMA
+# CONN_LIB_SNOWFLAKE_ACCOUNT
+# CONN_LIB_SNOWFLAKE_WAREHOUSE
+# CONN_LIB_SNOWFLAKE_DATABASE
+# CONN_LIB_SNOWFLAKE_ROLE
+# CONN_LIB_SNOWFLAKE_SCOPE
+# CONN_LIB_SNOWFLAKE_AUTHORITY
+# ENV_FOR_DYNACONF
+# MLOPS_TENANT_ID
+# MLOPS_SP_ID
+# MLOPS_SP_SECRET
+
+# CONN_LIB_SNOWFLAKE_CLIENT_SECRET
+
+
+# #These are coming from secret
+# secrets_filter:
+#   MLOps-Tenant-ID
+#   MLOps-Service-Principal-ID
+#   MLOps-Service-Principal-Secret
+#   TROI-DEV-SNFLK-OAUTH-SECRET
